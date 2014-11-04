@@ -1,10 +1,10 @@
 package com.ysoft.web;
 
 import org.springframework.core.MethodParameter;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.WebArgumentResolver;
 import org.springframework.web.context.request.NativeWebRequest;
-import org.springframework.web.servlet.HttpServletBean;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
