@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="pathMatcher" class="com.ysoft.web.Spring3AntPathMatcher" />
+
+    <bean class="com.ysoft.jobs.JobController" />
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="pathMatcher" ref="pathMatcher" />
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="pathMatcher" ref="pathMatcher" />
+        <property name="customArgumentResolver">
+            <bean class="com.ysoft.web.PathVariableWebArgumentResolver">
+                <constructor-arg ref="pathMatcher" />
+            </bean>
+        </property>
+    </bean>
+</beans>
